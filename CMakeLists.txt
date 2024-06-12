@@ -25,4 +25,11 @@ endif()
 
 install(DIRECTORY launch config DESTINATION share/${PROJECT_NAME})
 
+install(PROGRAMS
+  scripts/joy_to_input.py
+  DESTINATION lib/${PROJECT_NAME}
+)
+
+
+
 ament_package()
