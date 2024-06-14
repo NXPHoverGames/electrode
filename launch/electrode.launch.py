@@ -80,9 +80,6 @@ def generate_launch_description():
             {'autorepeat_rate': 20.0},
             {'deadzone': 0.02},
             ],
-        remappings=[
-            ("joy", "cerebri/in/joy"),
-        ],
         on_exit=Shutdown()
     )
 
@@ -120,10 +117,17 @@ def generate_launch_description():
             on_exit=Shutdown()
             )
 
+    joy_to_input = Node(
+       name='joy_to_input',
+       package='electrode',
+       output='screen',
+       executable='joy_to_input.py',
+    )
 
     return LaunchDescription(ARGUMENTS + [
         joy,
         rviz_node,
         foxglove_websockets,
-        foxglove_studio
+        foxglove_studio,
+        joy_to_input
     ])
