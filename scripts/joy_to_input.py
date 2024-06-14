@@ -27,7 +27,7 @@ class Axes(IntEnum):
     RIGHT_STICK_UP=4
     RIGHT_TRIGGER_OUT=5
     DPAD_LEFT=6
-    DPAD_RIGHT=7
+    DPAD_UP=7
 
 class Button(IntEnum):
     A=0
@@ -63,7 +63,8 @@ axes_map= {
     Axes.RIGHT_STICK_LEFT: (Channel.RIGHT_STICK_RIGHT, -1),
     Axes.RIGHT_STICK_UP: (Channel.RIGHT_STICK_UP, 1),
     Axes.LEFT_STICK_UP: (Channel.LEFT_STICK_UP, 1),
-    Axes.LEFT_STICK_LEFT: (Channel.LEFT_STICK_RIGHT, -1)
+    Axes.LEFT_STICK_LEFT: (Channel.LEFT_STICK_RIGHT, -1),
+    Axes.DPAD_LEFT: (Channel.VRA_CW, -1)
 }
 
 class JoyToInput(Node):
@@ -92,6 +93,7 @@ class JoyToInput(Node):
         self.msg.channel[Channel.SWB_DOWN] = SwitchPosUp;
         self.msg.channel[Channel.SWC_DOWN] = SwitchPosUp;
         self.msg.channel[Channel.SWD_DOWN] = SwitchPosUp;
+        self.msg.channel[Channel.VRA_CW] = 0;
 
     def listener_callback(self, msg_joy):
 
