@@ -40,6 +40,12 @@ ARGUMENTS = [
         description='use joystick'
     ),
 
+    DeclareLaunchArgument('controller',
+        default_value='f310',
+        choices=['f310', 'ps4'],
+        description='which controller you are using'
+    ),
+
     DeclareLaunchArgument('log_level',
         default_value=['warn'],
         description='Logging level'
@@ -88,7 +94,7 @@ def generate_launch_description():
        name='joy_to_input',
        package='electrode',
        output='screen',
-       executable='joy_to_input.py',
+       executable=['joy_to_input_', LaunchConfiguration('controller'), '.py'],
     )
 
     rviz_node = Node(
