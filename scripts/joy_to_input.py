@@ -73,7 +73,7 @@ class JoyToInput(Node):
         super().__init__('joy_to_input')
         self.subscription = self.create_subscription(
             Joy,
-            '/cerebri/in/joy',
+            '/joy',
             self.listener_callback,
             10)
         self.publisher = self.create_publisher(

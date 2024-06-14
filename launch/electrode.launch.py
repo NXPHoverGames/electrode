@@ -23,13 +23,13 @@ ARGUMENTS = [
     ),
 
     DeclareLaunchArgument('rviz2',
-        default_value='false',
+        default_value='true',
         choices=['true', 'false'],
         description='use rviz2 for gui.'
     ),
 
     DeclareLaunchArgument('foxglove',
-        default_value='true',
+        default_value='false',
         choices=['true', 'false'],
         description='use foxglove for gui.'
     ),
@@ -83,6 +83,14 @@ def generate_launch_description():
         on_exit=Shutdown()
     )
 
+    joy_to_input = Node(
+       condition=IfCondition(OrSubstitution(LaunchConfiguration('joy'),LaunchConfiguration('rviz2'))),
+       name='joy_to_input',
+       package='electrode',
+       output='screen',
+       executable='joy_to_input.py',
+    )
+
     rviz_node = Node(
         package='rviz2',
         executable='rviz2',
@@ -117,17 +125,10 @@ def generate_launch_description():
             on_exit=Shutdown()
             )
 
-    joy_to_input = Node(
-       name='joy_to_input',
-       package='electrode',
-       output='screen',
-       executable='joy_to_input.py',
-    )
-
     return LaunchDescription(ARGUMENTS + [
         joy,
+        joy_to_input,
         rviz_node,
         foxglove_websockets,
         foxglove_studio,
-        joy_to_input
     ])
