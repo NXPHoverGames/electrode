@@ -55,8 +55,8 @@ button_map = {
     Button.LEFT_BUMPER: [(Channel.SWD_DOWN, SwitchPosUp)], # topic source input
     Button.RIGHT_BUMPER: [(Channel.SWD_DOWN, SwitchPosDown)], # topic source ethernet
     Button.X: [(Channel.SWB_DOWN, SwitchPosUp), (Channel.SWC_DOWN, SwitchPosUp)], # attitude
-    Button.SQUARE: [(Channel.SWB_DOWN, SwitchPosUp), (Channel.SWC_DOWN, SwitchPosMiddle)], # velocity
-    Button.CIRCLE: [(Channel.SWB_DOWN, SwitchPosUp), (Channel.SWC_DOWN, SwitchPosDown)], # bezier
+    Button.CIRCLE: [(Channel.SWB_DOWN, SwitchPosUp), (Channel.SWC_DOWN, SwitchPosMiddle)], # velocity
+    Button.SQUARE: [(Channel.SWB_DOWN, SwitchPosUp), (Channel.SWC_DOWN, SwitchPosDown)], # bezier
     Button.DPAD_RIGHT: [(Channel.SWB_DOWN, SwitchPosMiddle), (Channel.SWC_DOWN, SwitchPosUp)], # attitude rate
     Button.TRIANGLE: [(Channel.SWB_DOWN, SwitchPosDown), (Channel.SWC_DOWN, SwitchPosDown)], # calibration
 }
