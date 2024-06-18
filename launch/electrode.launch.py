@@ -51,7 +51,7 @@ ARGUMENTS = [
     ),
 
     DeclareLaunchArgument('topic_whitelist',
-        default_value=['["/camera/image_raw/compressed","/camera/camera_info","/cerebri/out/status","/cerebri/out/nav_sat_fix","/global_costmap/costmap","/map","global_costmap/published_footprint","/plan","/robot_description","/tf"]'],
+        default_value=['["/camera/image_raw/compressed","/camera/camera_info","/cerebri/out/status","/cerebri/out/nav_sat_fix","/global_costmap/costmap","/map","global_costmap/published_footprint","/plan","/robot_description","/tf","/b3rb_ros_line_follower/thresh_image","/b3rb_ros_line_follower/vector_image"]'],
         description='topic_whitelist for foxglove'
     ),
 
