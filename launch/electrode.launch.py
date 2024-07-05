@@ -78,7 +78,7 @@ def generate_launch_description():
         package='joy',
         output='log',
         executable='joy_node',
-        condition=IfCondition(OrSubstitution(LaunchConfiguration('joy'),LaunchConfiguration('rviz2'))),
+        condition=IfCondition(LaunchConfiguration('joy')),
         arguments=['--ros-args', '--log-level', LaunchConfiguration('log_level')],
         parameters=[
             {'use_sim_time': LaunchConfiguration('sim')},
@@ -90,7 +90,7 @@ def generate_launch_description():
     )
 
     joy_to_input = Node(
-       condition=IfCondition(OrSubstitution(LaunchConfiguration('joy'),LaunchConfiguration('rviz2'))),
+       condition=IfCondition(LaunchConfiguration('joy')),
        name='joy_to_input',
        package='electrode',
        output='screen',
